@@ -1,0 +1,68 @@
+#
+# Ansible Tower Workshop: Creation of Labs in an Automated Way
+#
+#
+# Default Variables for Ravello Applications Creation
+#
+# NOTE: Just, modify ravello_app_list and ravello_deploy_topology_start_all variables as you need.
+#
+#
+# Enjoy! :)
+#
+
+ravello_blueprint: LATAM-SME-OSP-TestDrive-bp
+ravello_app_name: OSP-TestDrive
+
+ravello_app_list: 
+- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-Instructor" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W1" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W2" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W3" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W4" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W5" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W6" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W7" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W8" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W9" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W10" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W11" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W12" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W13" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W14" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W15" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W16" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W17" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W18" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W19" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W20" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W21" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W22" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W23" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W24" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W25" ]
+#- [ app_name: "{{ bucket_type }}-{{ ravello_app_name }}-{{ customer_name }}-W26" ]
+
+ravello_vms_list:
+- { vm_name: testdrive-director, description: OpenStack Director VM }
+- { vm_name: controller, description: OpenStack Controller node }
+
+ravello_tmp_dir: /tmp/ravello
+ravello_expiration_time_min: 300
+
+ravello_fqdn_dir: '{{ ravello_app_name }}'
+
+#ravello_inventory_template: inventory.ini.j2
+#ravello_inventory_file_name: inventory
+#ravello_inventory_dir: AnsibleTower-Workshop
+
+#ravello_token_expiration_time:
+#ravello_token_permissions: [ EXECUTE, UPDATE, READ ]
+#ravello_token_resource_type: APPLICATION
+#ravello_token_create_admin_url: true
+#ravello_token_file_name: token
+#ravello_token_dir: AnsibleTower-Workshop
+
+# Recommendation is to keep topology_region as is, for best AWS Zone performance
+ravello_deploy_topology_region: us-central-1
+ravello_deploy_topology_optimization: PERFORMANCE_OPTIMIZED
+ravello_deploy_topology_start_all: true

@@ -1,0 +1,17 @@
+# Default Variables for Ravello Applications Creation
+#
+# NOTE: Just, modify {{ country }}, {{ customer_name }} and 
+#       {{ ravello_keypair_name }} variables as you need.
+#
+# NOTE: {{ country }} variable can be as follows: MX, SAC or BR, for example.
+#
+#
+# Enjoy! :
+
+country: BR
+customer_name: TEST
+ravello_keypair_name: LATAM-SME-vfarias-test
+
+# Only modify below if you know what you are doing
+#bucket_type: "LATAM-SA-{{ country }}"
+bucket_type: LATAM-SME

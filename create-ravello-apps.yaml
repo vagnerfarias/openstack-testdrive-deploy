@@ -1,0 +1,9 @@
+---
+- name: Create Applications on Ravello from Blueprint
+  connection: local
+  hosts: localhost
+  gather_facts: no
+  serial: 1
+  roles:
+    - ravello.lib
+    - ravello.applications_create
