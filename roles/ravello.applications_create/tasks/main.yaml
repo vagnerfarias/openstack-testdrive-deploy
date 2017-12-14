@@ -10,13 +10,14 @@
         password: "{{ ravello_login_password }}"
       run_once: true
       register: kp
+      no_log: "{{ disable_log }}" 
       tags: [ create ]
 
-    - name: Print Keypair Name
-      debug: var=kp.json.name
-
-    - name: Print Keypair ID
-      debug: var=kp.json.id
+#    - name: Print Keypair Name
+#      debug: var=kp.json.name
+#
+#    - name: Print Keypair ID
+#      debug: var=kp.json.id
 
 ###############################
 ## Get Blueprint ID         ###
@@ -29,13 +30,14 @@
         password: "{{ ravello_login_password }}"
       run_once: true
       register: bp
+      no_log: "{{ disable_log }}" 
       tags: [ create ]
 
-    - name: Print Blueprint Name
-      debug: var=bp.json.name
-
-    - name: Print Blueprint ID
-      debug: var=bp.json.id
+#    - name: Print Blueprint Name
+#      debug: var=bp.json.name
+#
+#    - name: Print Blueprint ID
+#      debug: var=bp.json.id
 
 #####################################################
 ##  Create multiple application from Blueprint     ##
@@ -61,6 +63,7 @@
       ignore_errors: True
       with_items: "{{ ravello_app_list }}"
       register: apps
+      no_log: "{{ disable_log }}" 
       tags: [ create ]
 
 ###############################
@@ -75,6 +78,7 @@
       run_once: true
       with_items: "{{ ravello_app_list }}"
       register: apps
+      no_log: "{{ disable_log }}" 
       tags: [ deploy, fqdn, token, inventory ]
 
     # - debug: var=apps
@@ -95,6 +99,7 @@
         password: "{{ ravello_login_password }}"
       with_items: "{{ apps.results }}"
       register: director
+      no_log: "{{ disable_log }}" 
       tags: [ keypair ]
 
 #    - name: print App IDs (item0)
@@ -123,9 +128,10 @@
         HEADER_Accept: 'application/json'
       with_items: "{{ director.results }}"
       register: director_payload
+      no_log: "{{ disable_log }}" 
       tags: [ director ]
 
-    - debug: var=director_payload.results
+   #- debug: var=director_payload.results
      
 ########################################
 ## Convert keypair ID to string       ##
@@ -154,8 +160,9 @@
         HEADER_Accept: 'application/json'
       with_items: "{{ director_payload.results }}"
       register: updated_vm
+      no_log: "{{ disable_log }}" 
 
-    - debug: var=updated_vm
+#    - debug: var=updated_vm
       
 
 #######################################################
@@ -184,6 +191,7 @@
       ignore_errors: True
       with_items: "{{ apps.results }}"
       register: deploy
+      no_log: "{{ disable_log }}" 
       tags: [ deploy ]
 
 #    - name: Print App Names
@@ -209,16 +217,12 @@
       run_once: true
       when: not item.json.published
       with_items: "{{ apps.results }}"
+      no_log: "{{ disable_log }}" 
       tags: [ deploy ]
 
 #####################
 ## Build inventory ##
 #####################
-
-    - name: debugging
-      debug: var=ravello_vms_list
-      tags: [ inventory ]
-    #  debug: var=apps
 
     - name: Build inventory file
       build_inventory:
@@ -228,9 +232,8 @@
         user: "{{ ravello_login_username }}"
         password: "{{ ravello_login_password }}"
       register: inventory
+      no_log: "{{ disable_log }}" 
       tags: [ inventory ]
-
-    #- debug: var=inv
 
 ###############################
 ## Get VM ID                ###
@@ -246,6 +249,7 @@
            - "{{ apps.results }}"
            - "{{ ravello_vms_list }}"
       register: vms
+      no_log: "{{ disable_log }}" 
       tags: [ fqdn, inventory ]
 
 #    - name: print App IDs (item0)
@@ -275,6 +279,7 @@
         HEADER_Accept: 'application/json'
       with_items: "{{ vms.results }}"
       register: public_fqdn
+      no_log: "{{ disable_log }}" 
       tags: [ fqdn, inventory ]
 
 #    - name: Print Application IDs
@@ -291,75 +296,53 @@
       tags: [ fqdn ]
       run_once: true
       with_items: "{{ public_fqdn.results }}"
+      no_log: "{{ disable_log }}" 
 
-#    - name: Add Service Names in App YAML file(s) for Customer "{{ customer_name }}"
-#      lineinfile:
-#        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
-#        line: "{{ item.item.json.description }}:"
-#        create: yes
-#      with_items: "{{ public_fqdn.results }}"
-#      tags: [ fqdn ]
-#
-#    - name: Create OpenStack Controller node URL Service Name in App YAML file(s) for Customer "{{ customer_name }}"
-#      lineinfile:
-#        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
-#        line: "OpenStack Controller node:"
-#        create: yes
-#        insertafter: "^OpenStack Controller node:"
-#      with_items: "{{ public_fqdn.results }}"
-#      when: item.item.json.description == "OpenStack Controller node"
-#      tags: [ fqdn ]
-#
-#    - name: Create OpenStack Director Service Name in App YAML file(s) for Customer "{{ customer_name }}"
-#      lineinfile:
-#        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
-#        line: "OpenStack Director node:"
-#        create: yes
-#        insertafter: "^OpenStack Director node:"
-#      with_items: "{{ public_fqdn.results }}"
-#      when: item.item.json.description == "OpenStack Director node"
-#      tags: [ fqdn ]
-
-    - name: Add VM FQDNs and Names in App YAML file(s) for Customer "{{ customer_name }}"
+    - name: Add Service Names in App YAML file(s) for Customer "{{ customer_name }}"
       lineinfile:
         dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
-        line: "  {{ item.item.invocation.module_args.resource_name  }}: {{ item.json.value }}"
+        line: "{{ item.item.json.description }}:"
+        create: yes
+      with_items: "{{ public_fqdn.results }}"
+      no_log: "{{ disable_log }}" 
+      tags: [ fqdn ]
+
+    - name: Add Director FQDNs in App YAML file(s) for Customer "{{ customer_name }}"
+      lineinfile:
+        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
+        line: "  SSH into {{ item.json.value }}\n"
         create: yes
         insertafter: "^{{ item.item.json.description }}:"
       with_items: "{{ public_fqdn.results }}"
+      when: item.item.invocation.module_args.resource_name == "testdrive-director"
+      no_log: "{{ disable_log }}" 
       tags: [ fqdn ]
 
-
-#    - name: Add JBoss Java Application FQDN and Name in App YAML file(s) for Customer "{{ customer_name }}"
-#      lineinfile:
-#        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
-#        line: "  JBoss: {{ item.json.value }}/ticket-monster\n"
-#        create: yes
-#        insertafter: "^OpenStack Controller node:"
-#      with_items: "{{ public_fqdn.results }}"
-#      when: item.item.invocation.module_args.resource_name == "controller"
-#      tags: [ fqdn ]
-#
-#    - name: Add CloudForms Self-Service FQDN and Name in App YAML file(s) for Customer "{{ customer_name }}"
-#      lineinfile:
-#        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
-#        line: "  CloudForms: {{ item.json.value }}/self_service\n"
-#        create: yes
-#        insertafter: "^CloudForms Self-Service Portal:"
-#      with_items: "{{ public_fqdn.results }}"
-#      when: item.item.invocation.module_args.resource_name == "testdrive-director"
-#      tags: [ fqdn ]
+    - name: Add OpenStack Dashboard FQDN in App YAML file(s) for Customer "{{ customer_name }}"
+      lineinfile:
+        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
+        line: "  OpenStack Dashboard: http://{{ item.json.value }}/\n"
+        create: yes
+        insertafter: "^OpenStack Controller node:"
+      with_items: "{{ public_fqdn.results }}"
+      when: item.item.invocation.module_args.resource_name == "controller"
+      no_log: "{{ disable_log }}" 
+      tags: [ fqdn ]
 
     - name: Rename App YAML files with its App Name for Customer "{{ customer_name }}"
       command: mv "{{ravello_fqdn_dir}}/{{item.json.id}}.yaml" "{{ravello_fqdn_dir}}/{{item.json.name}}.yaml"
       with_items: "{{apps.results}}"
+      no_log: "{{ disable_log }}" 
+      tags: [ fqdn ]
      
-    - name: Get App YAML files for Customer "{{ customer_name }}"
-      command: ls "{{ravello_fqdn_dir}}" 
-      register: app_files
-
-    - name: Print App YAML files for Customer "{{ customer_name }}"
-      debug: var=app_files
+      #    - name: Get App YAML files for Customer "{{ customer_name }}"
+      #      command: ls "{{ravello_fqdn_dir}}" 
+      #      register: app_files
+      #      tags: [ fqdn ]
+      #
+      #    - name: Print App YAML files for Customer "{{ customer_name }}"
+      #      debug: var=app_files
+      #      tags: [ fqdn ]
       
 
 ###########################################
