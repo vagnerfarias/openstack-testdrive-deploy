@@ -13,5 +13,7 @@ customer_name: TEST
 ravello_keypair_name: LATAM-SME-vfarias-test
 
 # Only modify below if you know what you are doing
-#bucket_type: "LATAM-SA-{{ country }}"
-bucket_type: LATAM-SME
+bucket_type: "LATAM-SA-{{ country }}"
+#bucket_type: LATAM-SME
+
+ravello_inventory_file: "{{ inventory_file }}"
