@@ -17,3 +17,4 @@ bucket_type: "LATAM-SA-{{ country }}"
 #bucket_type: LATAM-SME
 
 ravello_inventory_file: "{{ inventory_file }}"
+disable_log: True
