@@ -189,6 +189,7 @@
 #    - name: Print App Names
 #      debug: var=item.json.name
 #      with_items: "{{ apps.results }}"
+
 ########################################
 ##  Set application Expiration time   ##
 ########################################
@@ -209,6 +210,27 @@
       when: not item.json.published
       with_items: "{{ apps.results }}"
       tags: [ deploy ]
+
+#####################
+## Build inventory ##
+#####################
+
+    - name: debugging
+      debug: var=ravello_vms_list
+      tags: [ inventory ]
+    #  debug: var=apps
+
+    - name: Build inventory file
+      build_inventory:
+        app_list: "{{ apps }}"
+        vm_list: "{{ ravello_vms_list }}"
+        outfile: "{{ ravello_inventory_file }}"
+        user: "{{ ravello_login_username }}"
+        password: "{{ ravello_login_password }}"
+      register: inventory
+      tags: [ inventory ]
+
+    #- debug: var=inv
 
 ###############################
 ## Get VM ID                ###
@@ -234,6 +256,7 @@
 #      debug: var=item.vm_name
 #      with_items: "{{ ravello_vms_list }}"
 
+
 ###############################
 ##  Getting Public FQDNs     ##
 ###############################
@@ -257,6 +280,7 @@
 #    - name: Print Application IDs
 #      debug: var=item.item.invocation.module_args.application_id
 #      with_items: "{{ public_fqdn.results }}"
+
 
 #######################################
 ##  Create files with all Labs info  ##
