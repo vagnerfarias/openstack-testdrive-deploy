@@ -1,0 +1,9 @@
+{
+    "ANSIBLE_MODULE_ARGS": {
+        "user": "DOMAIN/LOGIN",
+	"password": "PASSWORD",
+        "app_list": [{"_ansible_parsed": true, "changed": false, "_ansible_no_log": false, "failed": false, "_ansible_item_result": true, "item": {"app_name": "LATAM-SME-OSP-TestDrive-TEST-Instructor"}, "json": {"baseBlueprintId": 93683722, "description": "App created using Ansible", "ownerDetails": {"deleted": false, "userId": 83067439, "name": "Vagner Farias"}, "costBucket": {"deleted": false, "creationTime": 1495454597484, "id": 82804745, "name": "latam-sme", "parentId": 82345990}, "creationTime": 1513256866982, "blueprintName": "LATAM-SME-OSP-TestDrive-working-bp", "designDiffersFromDeployment": false, "costBucketId": 82804745, "version": 0, "design": {"stopVmsByOrder": false}, "published": false, "owner": "Vagner Farias", "usingNewNetwork": true, "id": 93819636, "name": "LATAM-SME-OSP-TestDrive-TEST-Instructor"}, "invocation": {"module_args": {"resource_name": "LATAM-SME-OSP-TestDrive-TEST-Instructor", "application_id": null, "token": null, "resource_type": "applications", "failed_if_not_found": false}}, "found": true}],
+	"vm_list": [{"vm_name": "testdrive-director", "description": "OpenStack Director VM" },{ "vm_name": "controller", "description": "OpenStack Controller node" }],
+	"outfile": "/tmp/inventory"
+    }
+}
