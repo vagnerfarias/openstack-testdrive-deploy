@@ -1,0 +1,47 @@
+# email server YAML files delivery
+
+ ravello_fqdn_dir: OSP-TestDrive
+ sendmail_host: 'smtp.gmail.com'
+ sendmail_port: '465' 
+ sendmail_username: 'your@email.com'
+ sendmail_password: ''
+ sendmail_from: 'your@email.com'
+
+ sendmail_to: 
+ - { name: Your Name, email: your@email.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-Instructor.yaml" } 
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W1.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W2.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W3.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W4.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W5.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W6.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W7.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W8.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W9.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W10.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W11.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W12.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W13.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W14.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W15.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W16.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W17.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W18.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W19.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W20.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W21.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W22.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W23.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W24.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W25.yaml" }
+# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W26.yaml" }
+
+ sendmail_subject: "OpenStack Test Drive: Documentation"
+ sendmail_cc: ''
+ sendmail_tmp: '/tmp'
+ sendmail_body: "Hola {{ item.name }}\n\n\nLe envio el archivo PDF para seguir el Test Drive, así como el archivo YAML para accesar a las URLs de dicho Test Drive.\n\n\nSaludos cordiales.\n\nRed Hat team\n\n**Este mail ha sido automatizado via Red Hat Ansible**"
+# sendmail_body: "Olá {{ item.name }}\n\n\nEstou enviando pra voces o arquivo PDF para seguir o Test Drive. Também o arquivo YAML para acessar o ambiente.\n\n\nAtenciosamente.\n\nRed Hat team\n\n**Este email foi automatizado via Red Hat Ansible**"
+ sendmail_attach: Red_Hat_OpenStack_Platform_Test_Drive_Guide.pdf
+ sendmail_headers: ''
+ sendmail_subtype: ''
+ sendmail_charset: 'utf8'

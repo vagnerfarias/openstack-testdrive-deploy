@@ -1,0 +1,6 @@
+- name: Send YAML Application Files to Customers
+  connection: local
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - sendmail.applications
