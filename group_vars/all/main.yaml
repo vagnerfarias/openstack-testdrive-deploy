@@ -12,6 +12,8 @@ country: BR
 customer_name: TEST
 ravello_keypair_name: LATAM-SME-vfarias-test
 
+shared_ssh_public_key: 'shared-key.pub'
+
 # Only modify below if you know what you are doing
 bucket_type: "LATAM-SA-{{ country }}"
 #bucket_type: LATAM-SME

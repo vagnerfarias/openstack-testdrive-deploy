@@ -5,12 +5,12 @@
   gather_facts: no
 
   tasks:
-    - name: Configure shared ssh private key for environment
+    - name: Configure shared ssh key for environment
       become: yes
       authorized_key:
         user: stack
         state: present
-        key: "{{ lookup('file', shared_ssh_private_key ) }}"
+        key: "{{ lookup('file', shared_ssh_public_key ) }}"
 
 - hosts: overcloud-all
   vars:
