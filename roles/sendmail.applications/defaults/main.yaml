@@ -39,8 +39,8 @@
  sendmail_subject: "OpenStack Test Drive: Documentation"
  sendmail_cc: ''
  sendmail_tmp: '/tmp'
- sendmail_body: "Hola {{ item.name }}\n\n\nLe envio el archivo PDF para seguir el Test Drive, así como el archivo YAML para accesar a las URLs de dicho Test Drive.\n\n\nSaludos cordiales.\n\nRed Hat team\n\n**Este mail ha sido automatizado via Red Hat Ansible**"
-# sendmail_body: "Olá {{ item.name }}\n\n\nEstou enviando pra voces o arquivo PDF para seguir o Test Drive. Também o arquivo YAML para acessar o ambiente.\n\n\nAtenciosamente.\n\nRed Hat team\n\n**Este email foi automatizado via Red Hat Ansible**"
+ sendmail_body: "Hola {{ item.name }}\n\n\nLe envio el archivo PDF para seguir el Test Drive, así como el archivo con informaciones para accesar a las URLs de dicho Test Drive.\n\n\nSaludos cordiales.\n\nRed Hat team\n\n**Este mail ha sido automatizado via Red Hat Ansible**"
+# sendmail_body: "Olá {{ item.name }}\n\n\nEstou enviando pra voces o arquivo PDF para seguir o Test Drive. Também o arquivo com informações para acessar o ambiente.\n\n\nAtenciosamente.\n\nRed Hat team\n\n**Este email foi automatizado via Red Hat Ansible**"
  sendmail_attach: Red_Hat_OpenStack_Platform_Test_Drive_Guide.pdf
  sendmail_headers: ''
  sendmail_subtype: ''
