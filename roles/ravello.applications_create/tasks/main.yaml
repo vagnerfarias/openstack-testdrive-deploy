@@ -291,26 +291,26 @@
 ##  Create files with all Labs info  ##
 #######################################
 
-    - name: Delete previous App YAML file(s) for Customer "{{ customer_name }}"
-      file: path={{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml state=absent
+    - name: Delete previous App file(s) for Customer "{{ customer_name }}"
+      file: path={{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.txt state=absent
       tags: [ fqdn ]
       run_once: true
       with_items: "{{ public_fqdn.results }}"
       no_log: "{{ disable_log }}" 
 
-    - name: Add Service Names in App YAML file(s) for Customer "{{ customer_name }}"
+    - name: Add Service Names in App file(s) for Customer "{{ customer_name }}"
       lineinfile:
-        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
-        line: "{{ item.item.json.description }}:"
+        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.txt"
+        line: "{{ item.item.json.description }}:\r\n"
         create: yes
       with_items: "{{ public_fqdn.results }}"
       no_log: "{{ disable_log }}" 
       tags: [ fqdn ]
 
-    - name: Add Director FQDNs in App YAML file(s) for Customer "{{ customer_name }}"
+    - name: Add Director FQDNs in App file(s) for Customer "{{ customer_name }}"
       lineinfile:
-        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
-        line: "  SSH into {{ item.json.value }}\n"
+        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.txt"
+        line: "  SSH into {{ item.json.value }}\r\n"
         create: yes
         insertafter: "^{{ item.item.json.description }}:"
       with_items: "{{ public_fqdn.results }}"
@@ -318,10 +318,10 @@
       no_log: "{{ disable_log }}" 
       tags: [ fqdn ]
 
-    - name: Add OpenStack Dashboard FQDN in App YAML file(s) for Customer "{{ customer_name }}"
+    - name: Add OpenStack Dashboard FQDN in App file(s) for Customer "{{ customer_name }}"
       lineinfile:
-        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.yaml"
-        line: "  OpenStack Dashboard: http://{{ item.json.value }}/\n"
+        dest: "{{ ravello_fqdn_dir }}/{{ item.item.invocation.module_args.application_id }}.txt"
+        line: "  OpenStack Dashboard: http://{{ item.json.value }}/\r\n"
         create: yes
         insertafter: "^OpenStack Controller node:"
       with_items: "{{ public_fqdn.results }}"
@@ -330,17 +330,17 @@
       tags: [ fqdn ]
 
     - name: Rename App YAML files with its App Name for Customer "{{ customer_name }}"
-      command: mv "{{ravello_fqdn_dir}}/{{item.json.id}}.yaml" "{{ravello_fqdn_dir}}/{{item.json.name}}.yaml"
+      command: mv "{{ravello_fqdn_dir}}/{{item.json.id}}.txt" "{{ravello_fqdn_dir}}/{{item.json.name}}.txt"
       with_items: "{{apps.results}}"
       no_log: "{{ disable_log }}" 
       tags: [ fqdn ]
      
-      #    - name: Get App YAML files for Customer "{{ customer_name }}"
+      #    - name: Get App files for Customer "{{ customer_name }}"
       #      command: ls "{{ravello_fqdn_dir}}" 
       #      register: app_files
       #      tags: [ fqdn ]
       #
-      #    - name: Print App YAML files for Customer "{{ customer_name }}"
+      #    - name: Print App files for Customer "{{ customer_name }}"
       #      debug: var=app_files
       #      tags: [ fqdn ]
       

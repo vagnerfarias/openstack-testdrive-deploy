@@ -9,7 +9,7 @@
     to: "{{ item.email }}"
     subject: "{{ sendmail_subject }}"
     body: "{{ sendmail_body }}" 
-    attach: "{{ravello_fqdn_dir}}/{{ item.yaml_app_file }} {{ sendmail_attach }}"
+    attach: "{{ravello_fqdn_dir}}/{{ item.txt_app_file }} {{ sendmail_attach }}"
     charset: utf8
     secure: try
   with_items: "{{ sendmail_to }}"

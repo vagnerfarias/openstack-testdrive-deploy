@@ -8,33 +8,33 @@
  sendmail_from: 'your@email.com'
 
  sendmail_to: 
- - { name: Your Name, email: your@email.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-Instructor.yaml" } 
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W1.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W2.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W3.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W4.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W5.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W6.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W7.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W8.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W9.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W10.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W11.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W12.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W13.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W14.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W15.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W16.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W17.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W18.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W19.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W20.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W21.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W22.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W23.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W24.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W25.yaml" }
-# - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W26.yaml" }
+ - { name: Your Name, email: your@email.com, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-Instructor.txt" } 
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W1.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W2.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W3.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W4.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W5.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W6.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W7.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W8.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W9.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W10.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W11.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W12.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W13.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W14.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W15.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W16.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W17.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W18.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W19.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W20.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W21.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W22.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W23.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W24.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W25.txt" }
+# - { name: customername, email: customer@email, txt_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W26.txt" }
 
  sendmail_subject: "OpenStack Test Drive: Documentation"
  sendmail_cc: ''
