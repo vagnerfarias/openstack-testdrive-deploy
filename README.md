@@ -26,13 +26,13 @@ All the files mentioned below are relative to the directory where openstack-test
 Edit group\_vars/all/credentials and include your Ravello domain/username and password.
 
 ~~~
-ravello\_login\_username: 0123456/your@email.com
-ravello\_login\_password: YourPassword
+ravello_login_username: 0123456/your@email.com
+ravello_login_password: YourPassword
 ~~~
 
 ### General configuration
 
-Edit group\_vars/all/main.yaml and set:
+Edit _group\_vars/all/main.yaml_ and set:
 
 Variable Name | Example | Explanation
 --------------|---------|------------
