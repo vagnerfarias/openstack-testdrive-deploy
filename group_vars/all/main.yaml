@@ -10,13 +10,12 @@
 
 country: BR
 customer_name: TEST
-ravello_keypair_name: LATAM-SME-vfarias-test
-
-shared_ssh_public_key: 'shared-key.pub'
+ravello_keypair_name: LATAM-BR-username
 
 # Only modify below if you know what you are doing
 bucket_type: "LATAM-SA-{{ country }}"
 #bucket_type: LATAM-SME
 
+shared_ssh_key: './testdrive-sshkey.pub'
 ravello_inventory_file: "{{ inventory_file }}"
 disable_log: True

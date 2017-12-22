@@ -21,6 +21,12 @@
         path: ./heat-admin-sshkey
         mode: 0600
 
+    - name: Generate shared ssh key
+      command: "/usr/bin/ssh-keygen -N \"\" -f {{ shared_ssh_key }} -q"
+
+    - name: Convert private key to PuTTY format
+      command: "/usr/bin/puttygen {{ shared_ssh_key }} -o {{ shared_ssh_key }}.ppk"
+
 - hosts: director-all
   vars:
     ansible_user: cloud-user
@@ -32,7 +38,7 @@
       authorized_key:
         user: stack
         state: present
-        key: "{{ lookup('file', shared_ssh_public_key ) }}"
+        key: "{{ lookup('file', shared_ssh_key + '.pub' ) }}"
 
 
 - hosts: overcloud-all
