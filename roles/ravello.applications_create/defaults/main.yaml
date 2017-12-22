@@ -47,7 +47,7 @@ ravello_vms_list:
 - { vm_name: controller, description: OpenStack Controller node }
 
 ravello_tmp_dir: /tmp/ravello
-ravello_expiration_time_min: 300
+ravello_expiration_time_min: 540
 
 ravello_fqdn_dir: '{{ ravello_app_name }}'
 
