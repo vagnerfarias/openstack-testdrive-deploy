@@ -57,7 +57,7 @@ ravello_app_list:
 If required, change the expiration time through the variable *ravelo\_expiration\_time\_min*. Default is 9 hours (540 minutes).
 
 ~~~
-ravello\_expiration\_time\_min: 540
+ravello_expiration_time_min: 540
 ~~~
 
 Remaining variables in this file usually shouldn't be modified.
