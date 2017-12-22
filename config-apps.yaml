@@ -1,4 +1,26 @@
 ---
+- hosts: director-all[0]
+  vars:
+    ansible_user: cloud-user
+  gather_facts: no
+
+  tasks:
+    - name: Download heat-admin ssh private key
+      become: yes
+      fetch:
+        src: /home/stack/.ssh/id_rsa
+        dest: ./heat-admin-sshkey
+        flat: yes
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Set ssh key permission
+      file:
+        path: ./heat-admin-sshkey
+        mode: 0600
+
 - hosts: director-all
   vars:
     ansible_user: cloud-user
@@ -12,10 +34,11 @@
         state: present
         key: "{{ lookup('file', shared_ssh_public_key ) }}"
 
+
 - hosts: overcloud-all
   vars:
     ansible_user: heat-admin
-    ansible_ssh_private_key_file: /home/vfarias/tmp/heat-admin-sshkey
+    ansible_ssh_private_key_file: "./heat-admin-sshkey"
   gather_facts: no
 
   tasks:
