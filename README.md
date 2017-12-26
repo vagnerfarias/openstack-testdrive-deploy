@@ -7,6 +7,7 @@ This set of playbooks will automate the deployment and configuration of OpenStac
 1. git package
 1. openstack-testdrive-deploy contents (aka this repository)
 1. ansible
+1. PuTTY (in order to generate proprietary PuTTY SSH keys)
 
 ### Cloning openstack-testdrive-deploy repository
 
@@ -16,6 +17,10 @@ Clone the openstack-testdrive-deploy repository to the desired location, as a re
 $ cd ~
 $ git clone https://github.com/vagnerfarias/openstack-testdrive-deploy.git
 ```
+
+### PuTTY
+
+PuTTY is available in Fedora repository and in EPEL (for RHEL).
 
 ## Configuration
 
@@ -61,7 +66,7 @@ ravello_expiration_time_min: 540
 
 Remaining variables in this file usually shouldn't be modified.
 
-## Labs deployment
+### Labs deployment
 
 In order to deploy the labs, run the create-ravello-apps playbook, as follows:
 
@@ -69,7 +74,7 @@ In order to deploy the labs, run the create-ravello-apps playbook, as follows:
 $ ansible-playbook create-ravello-apps.yaml
 ~~~
 
-## Labs post-configuration
+### Labs post-configuration
 
 After the labs are deployed and all VMs are up, it's required to run an additional playbook which will:
 
