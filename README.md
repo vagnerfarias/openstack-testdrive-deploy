@@ -20,7 +20,7 @@ $ git clone https://github.com/vagnerfarias/openstack-testdrive-deploy.git
 
 ### PuTTY
 
-PuTTY is available in Fedora repository and in EPEL (for RHEL).
+PuTTY is available in main Fedora repository and in [EPEL](https://fedoraproject.org/wiki/EPEL) for RHEL.
 
 ## Configuration
 
