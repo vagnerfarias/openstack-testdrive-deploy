@@ -28,12 +28,14 @@ All the files mentioned below are relative to the directory where openstack-test
 
 ### Ravello credentials
 
-Edit group\_vars/all/credentials and include your Ravello domain/username and password.
+Edit group\_vars/all/credentials and include your Ravello domain/username and password, like in the example below:
 
 ~~~
 ravello_login_username: 0123456/your@email.com
 ravello_login_password: YourPassword
 ~~~
+
+**Note**: the part before the '/' in the username is the Ravello domain.
 
 ### General configuration
 
