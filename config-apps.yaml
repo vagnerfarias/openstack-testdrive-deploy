@@ -22,10 +22,10 @@
         mode: 0600
 
     - name: Generate shared ssh key
-      command: "/usr/bin/ssh-keygen -N \"\" -f {{ shared_ssh_key }} -q"
+      command: "/usr/bin/ssh-keygen -N \"\" -f {{ shared_ssh_key }} -q creates={{ shared_ssh_key }}"
 
     - name: Convert private key to PuTTY format
-      command: "/usr/bin/puttygen {{ shared_ssh_key }} -o {{ shared_ssh_key }}.ppk"
+      command: "/usr/bin/puttygen {{ shared_ssh_key }} -o {{ shared_ssh_key }}.ppk creates={{ shared_ssh_key }}.ppk"
 
 - hosts: director-all
   vars:
@@ -54,7 +54,7 @@
         path: /etc/nova/nova.conf
         section: vnc
         option: novncproxy_base_url
-        value: 'http://{{ controllerFqdn }}:6080/vnc_auto.html'
+        value: 'https://{{ controllerFqdn }}:13080/vnc_auto.html'
         backup: yes
       register: base_url
     
