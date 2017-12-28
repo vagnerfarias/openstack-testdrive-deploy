@@ -61,9 +61,9 @@ def run_module():
             group['overcloud-all:children'].append(app_name)
             group[app_name] = []
             group[app_name+':vars'] = []
-            group[app_name].append('controller-'+app_name+' nodeIp=172.16.1.27')
+            group[app_name].append('controller-'+app_name+' nodeIp=172.16.1.22')
             group[app_name].append('compute1-'+app_name+' nodeIp=172.16.1.25')
-            group[app_name].append('compute2-'+app_name+' nodeIp=172.16.1.23')
+            group[app_name].append('compute2-'+app_name+' nodeIp=172.16.1.24')
 
             url = "https://cloud.ravellosystems.com/api/v1/applications/{0}/vms".format(app['json']['id'])
 
