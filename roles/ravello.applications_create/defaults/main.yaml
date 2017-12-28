@@ -63,6 +63,6 @@ ravello_fqdn_dir: '{{ ravello_app_name }}'
 #ravello_token_dir: AnsibleTower-Workshop
 
 # Recommendation is to keep topology_region as is, for best AWS Zone performance
-ravello_deploy_topology_region: us-central-1
+ravello_deploy_topology_region: us-east-5
 ravello_deploy_topology_optimization: PERFORMANCE_OPTIMIZED
 ravello_deploy_topology_start_all: true
