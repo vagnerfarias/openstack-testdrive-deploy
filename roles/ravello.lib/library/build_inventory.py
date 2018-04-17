@@ -20,7 +20,8 @@ def run_module():
         vm_list = dict(type='list', required = True, default=None),
         outfile = dict(required = True, default=None),
         user = dict(required = True, default = None),
-        password = dict(required = True, default = None)
+        password = dict(required = True, default = None),
+        keyfile = dict(required = True, default = None)
     )
 
     result = dict(
@@ -38,6 +39,7 @@ def run_module():
     all_apps = module.params['app_list']['results']
     vm_list = module.params['vm_list']
     outfile = module.params['outfile']
+    keyfile = module.params['keyfile']
     
     group = {}
     group['director-all'] = []
@@ -85,7 +87,7 @@ def run_module():
                                 if re.search('^controller',vm_name.encode('utf-8')) is not None:
                                     group[app_name+':vars'].append('controllerFqdn=' +vm_fqdn)
                                 elif re.search('director',vm_name.encode('utf-8')) is not None:
-                                    group[app_name+':vars'].append('ansible_ssh_common_args=\'-o ProxyCommand=\"ssh -W {{ nodeIp }}:%p -q cloud-user@' + vm_fqdn + '\"\'')
+                                    group[app_name+':vars'].append('ansible_ssh_common_args=\'-o ProxyCommand=\"ssh -W {{ nodeIp }}:%p -q cloud-user@' + vm_fqdn + ' -i ' + keyfile + '\"\'')
                                     group['director-all'].append('director-' + app_name + ' ansible_host=' + vm_fqdn)
                             else:
                                 module.fail_json(msg='Error getting FQDN for VM', **result)

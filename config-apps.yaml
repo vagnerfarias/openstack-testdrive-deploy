@@ -2,6 +2,7 @@
 - hosts: director-all[0]
   vars:
     ansible_user: cloud-user
+    ansible_ssh_private_key_file: "{{ ravello_keypair_file }}"
   gather_facts: no
 
   tasks:
@@ -30,6 +31,7 @@
 - hosts: director-all
   vars:
     ansible_user: cloud-user
+    ansible_ssh_private_key_file: "{{ ravello_keypair_file }}"
   gather_facts: no
 
   tasks:

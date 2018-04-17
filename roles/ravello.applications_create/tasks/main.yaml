@@ -231,6 +231,7 @@
         outfile: "{{ ravello_inventory_file }}"
         user: "{{ ravello_login_username }}"
         password: "{{ ravello_login_password }}"
+        keyfile: "{{ ravello_keypair_file }}"
       register: inventory
       no_log: "{{ disable_log }}" 
       tags: [ inventory ]

@@ -1,7 +1,8 @@
 # Default Variables for Ravello Applications Creation
 #
-# NOTE: Just, modify {{ country }}, {{ customer_name }} and 
-#       {{ ravello_keypair_name }} variables as you need.
+# NOTE: Just, modify {{ country }}, {{ customer_name }}, 
+#       {{ ravello_keypair_name }} and {{ ravello_keypair_file }} 
+#       variables as you need.
 #
 # NOTE: {{ country }} variable can be as follows: MX, SAC or BR, for example.
 #
@@ -9,13 +10,19 @@
 # Enjoy! :
 
 country: BR
+# customer_name should be the name of customer or event identifier for
+#               this test drive
 customer_name: TEST
+# ravello_keypair_name should be the name of the public key in Ravello
+#                      which will be injected on instances
 ravello_keypair_name: LATAM-BR-username
+# ravello_keypair_file should point to private ssh key on local system
+ravello_keypair_file: ~/.ssh/LATAM-BR-username
 
 # Only modify below if you know what you are doing
 bucket_type: "LATAM-SA-{{ country }}"
 #bucket_type: LATAM-SME
 
-shared_ssh_key: './testdrive-sshkey.pub'
+shared_ssh_key: './testdrive-sshkey'
 ravello_inventory_file: "{{ inventory_file }}"
 disable_log: True
