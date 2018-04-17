@@ -46,6 +46,7 @@ Variable Name | Example | Explanation
 country | BR, MX, SAC, etc | Region where you are allowed to create resources on Ravello.
 customer\_name | MyCustomer, OpenStack-Day, etc | Name of customer or some event identifier.
 ravello\_keypair\_name | LATAM-BR-mykey | The name of your own keypair in Ravello. All applications will be created with this keypair, so that you can access the environment.
+ravello\_keypair\_file | ~/.ssh/LATAM-BR-mykey | The ssh private key file in your filesystem associated to ravello\_keypair\_name.
 
 The remaining variables shouldn't be modified, unless you understand what they do.
 
